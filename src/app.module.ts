@@ -15,7 +15,7 @@ import { Todo } from './todo/entities/todo.entity';
       host: 'localhost',
       port: 5432,
       username: 'postgres',
-      password: 'postgres',
+      password: 'masukaja',
       database: 'todo-app',
       // host: String(process.env.DB_HOST),
       // port: Number(process.env.DB_PORT),
