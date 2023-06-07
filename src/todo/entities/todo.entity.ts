@@ -18,6 +18,6 @@ export class Todo {
   @Column({ type: 'date' })
   deadline: Date;
 
-  @ManyToOne(() => User, (user) => user.todo)
+  @ManyToOne(() => User, (user) => user.todos)
   user: User;
 }

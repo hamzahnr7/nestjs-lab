@@ -3,7 +3,7 @@ import { TodoService } from './todo.service';
 import { TodoController } from './todo.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Todo } from './entities/todo.entity';
-import { JwtGuard } from 'src/jwt/jwt.guard';
+import { JwtGuard } from 'src/guards/jwt.guard';
 import { JwtModule } from '@nestjs/jwt';
 import { AuthService } from 'src/auth/auth.service';
 import { AuthModule } from 'src/auth/auth.module';

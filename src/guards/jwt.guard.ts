@@ -8,8 +8,11 @@ export class JwtGuard implements CanActivate {
   async canActivate(context: ExecutionContext): Promise<any> {
     const request = context.switchToHttp().getRequest();
     const token = request.headers.authorization?.split(' ')[1];
-
-    if (await this.authService.checkToken(token)) return token;
+    const data = await this.authService.checkToken(token);
+    if (data) {
+      request.payload = data.id;
+      return token;
+    }
     return false;
   }
 }

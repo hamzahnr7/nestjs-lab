@@ -21,8 +21,6 @@ export class User {
   @Column()
   notelp: string;
 
-  @Generated('increment')
-  @OneToMany(() => Todo, (todo) => todo.id)
-  todo: Todo[];
-  // fk1: string;
+  @OneToMany(() => Todo, (todo) => todo.user)
+  todos: Todo[];
 }
