@@ -1,5 +1,11 @@
-import { UUIDVersion } from 'class-validator';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Todo } from 'src/todo/entities/todo.entity';
+import {
+  Column,
+  Entity,
+  Generated,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity()
 export class User {
@@ -14,4 +20,9 @@ export class User {
 
   @Column()
   notelp: string;
+
+  @Generated('increment')
+  @OneToMany(() => Todo, (todo) => todo.id)
+  todo: Todo[];
+  // fk1: string;
 }

@@ -6,6 +6,8 @@ import {
   Patch,
   Param,
   Delete,
+  HttpStatus,
+  Req,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -17,13 +19,16 @@ export class UserController {
 
   @Post()
   createUser(@Body() createUserDto: CreateUserDto) {
-    // console.log(createUserDto);
-    return this.userService.createUser(createUserDto);
+    if (createUserDto.password == createUserDto.confirmPassword) {
+      return this.userService.createUser(createUserDto);
+    }
+    return { code: HttpStatus.BAD_REQUEST };
   }
 
   // @Get()
-  // findAll() {
-  //   return this.userService.findAll();
+  // findAll(@Req() req: any) {
+  //   const token = req.headers.authorization?.split(' ')[1];
+  //   return token;
   // }
 
   // @Get(':id')

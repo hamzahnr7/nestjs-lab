@@ -11,7 +11,7 @@ import { UserModule } from './user/user.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
-      envFilePath: '.development.env',
+      envFilePath: `./env/development.env`, // Setting ENV file
       isGlobal: true,
     }),
     DatabaseModule,

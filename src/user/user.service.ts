@@ -20,12 +20,9 @@ export class UserService {
     });
   }
 
-  findAll() {
-    return `This action returns all user`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  loginUser(username: string, password: string) {
+    const user = this.userRepo.findOne({ where: { username, password } });
+    return user;
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
