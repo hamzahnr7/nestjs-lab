@@ -1,19 +1,19 @@
-import { Column, Entity, IsNull, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Todo {
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @Column()
-    title: string;
-    
-    @Column('text')
-    description: string;
-    
-    @Column()
-    status: string;
-    
-    @Column({type: "date"})
-    deadline: Date;
+  @Column()
+  title: string;
+
+  @Column('text')
+  description: string;
+
+  @Column()
+  status: string;
+
+  @Column({ type: 'date' })
+  deadline: Date;
 }

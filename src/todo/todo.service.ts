@@ -9,8 +9,8 @@ import { Todo } from './entities/todo.entity';
 export class TodoService {
   constructor(
     @InjectRepository(Todo)
-    private readonly todoRepository: Repository<Todo>
-  ) { }
+    private readonly todoRepository: Repository<Todo>,
+  ) {}
 
   async createTodo(todo: CreateTodoDto) {
     return await this.todoRepository.save(todo);
