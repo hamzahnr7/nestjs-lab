@@ -55,7 +55,11 @@ export class TodoService {
   }
 
   async removeTodo(id: number, token: string) {
-    const user = this.getUser(token);
-    return await this.todoRepository.delete({ id });
+    const user = await this.getUser(token);
+    const deletedTask = await this.todoRepository.findOne({
+      where: { id, user },
+      relations: { user: true },
+    });
+    return await this.todoRepository.delete({ id: deletedTask.id });
   }
 }
