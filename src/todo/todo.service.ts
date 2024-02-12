@@ -4,7 +4,6 @@ import { DataSource, Repository } from 'typeorm';
 import { CreateTodoDto } from './dto/create-todo.dto';
 import { UpdateTodoDto } from './dto/update-todo.dto';
 import { Todo } from './entities/todo.entity';
-import { UUIDVersion } from 'class-validator';
 import { User } from 'src/user/entities/user.entity';
 
 @Injectable()
